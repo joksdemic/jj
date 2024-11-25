@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteBase webshop
+
+# Preusmeravanje za 404 greške
+ErrorDocument 404 webshopcontrollerserror404.php
+
+# Preusmeravanje svih zahteva na index.php, osim za postojeće fajlove i direktorijume
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.)$ index.php [QSA,L]
